@@ -2,6 +2,11 @@
 
 <p>
     <% @companies.each do |company| %>
-    <li><%= company.name %></li>
+    
+    <p><%= company.name %></p>
+    <li>CEO: <%= company.ceo %></li>
+    <li>Website: <%= company.website %></li>
+    <li>Company Description: <%= company.description %></li>
+   
     <% end %>
 </p>

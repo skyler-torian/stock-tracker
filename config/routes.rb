@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users
   get 'companies/index'
   resources :companies
+  get 'companies/show'
+  resources :companies
 end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
