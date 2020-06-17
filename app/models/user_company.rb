@@ -1,4 +1,4 @@
 class UserCompany < ApplicationRecord
-    has_many :companies
-    has_many :users
+    belongs_to :companies
+    belongs_to :users
 end
