@@ -14,14 +14,6 @@ ActiveRecord::Schema.define(version: 2020_06_18_172929) do
 
   create_table "companies", force: :cascade do |t|
     t.string "symbol"
-    t.string "company"
-    t.string "name"
-    t.string "exchange"
-    t.string "industry"
-    t.string "website"
-    t.string "description"
-    t.string "ceo"
-    t.string "sector"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_172929) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
