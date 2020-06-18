@@ -20,6 +20,6 @@ brook = User.create(username: "Brook", email: "brook@gmail.com", password: "pass
 spencer = User.create(username: "Spencer", email: "spencer@gmail.com", password: "password")
 paige = User.create(username: "Paige", email: "paige@gmail.com", password: "password")
 
-stocks1 = UserCompany.create(user_id: 1, company_id: 1)
-stocks2 = UserCompany.create(user_id: 2, company_id: 2)
-stocks3 = UserCompany.create(user_id: 1, company_id: 2)
+stocks1 = UserCompany.create(user_id: skyler.id, company_id: apple.id)
+stocks2 = UserCompany.create(user_id: brook.id, company_id: facebook.id)
+stocks3 = UserCompany.create(user_id: skyler.id, company_id: coke.id)
