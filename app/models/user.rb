@@ -13,12 +13,12 @@ class User < ApplicationRecord
 
 
     def password
-        @password ||= Password.new(password_hash)
+        @password = User.new(password)
     end
 
-    def password=(new_password)
-        @password = Password.create(new_password)
-        self.password_hash = @password_hash
-    end
+    # def password=(new_password)
+    #     @password = User.create(new_password)
+    #     self.password = @password
+    # end
 
 end

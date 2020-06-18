@@ -13,10 +13,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(params[:username])
+    @user.email = params[:email]
     @user.password = params[:password]
     @user.save!
-    redirect_to login_path
+    redirect_to user_path
   end
 
   def login
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
     if @user.password == params[:password]
       give_token
     else 
-      redirect_to home_url
+      redirect_to user_path
     end
   end
 

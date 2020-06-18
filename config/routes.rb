@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "/login", to: "sessions#new", as: "login"
+  post "/login", to: "sessions#create"
+  get "/logout", to: "sessions#destroy"
   get 'sessions/create'
   get 'sessions/destroy'
   get 'sessions/new'
@@ -6,7 +9,7 @@ Rails.application.routes.draw do
   resources :user_companies
   get 'users/index'
   resources :users
-  get 'users/signup'
+  get 'users/create'
   resources :users
   get 'companies/index'
   resources :companies
