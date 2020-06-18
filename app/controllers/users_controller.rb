@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:show]
   
   def index
     @users = User.all
@@ -22,10 +23,12 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      give_token
+    byebug
+    @password = params[:password]
+    if @password == @user.password
+      # give_token
     else 
-      redirect_to user_path
+      redirect_to signup_path
     end
   end
 
