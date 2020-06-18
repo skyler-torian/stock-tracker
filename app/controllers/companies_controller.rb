@@ -6,7 +6,7 @@ def index
 end
 
 def show
-    @company = Company.search(params[:search])
+    @company = Company.search(params[:search].upcase)
 end
   
   
