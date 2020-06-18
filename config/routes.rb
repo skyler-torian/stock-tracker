@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :user_companies
   get 'users/index'
   resources :users
+  get 'users/signup'
+  resources :users
   get 'companies/index'
   resources :companies
   get 'companies/show'
