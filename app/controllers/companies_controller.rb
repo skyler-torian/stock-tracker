@@ -2,11 +2,20 @@ class CompaniesController < ApplicationController
 
 
 def index
-    @companies = Company.all
+    @companies = Company.search(params[:search])
 end
 
 def show
-    @company = Company.find(params[:id])
+    @company = Company.search(params[:search])
 end
+  
+  
+
+private
+
+def company_params
+    params.require(:symbol).permit(:symbol, :search)
+end
+
 
 end

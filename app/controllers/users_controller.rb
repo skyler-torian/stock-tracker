@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  include BCrypt
-
+  
   def index
     @users = User.all
   end
