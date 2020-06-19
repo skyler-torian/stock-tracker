@@ -26,7 +26,7 @@ def show
         endpoint: 'https://cloud.iexapis.com/v1'
       )
       if params[:id] == ""
-        @nothing = "You forgot to enter a symbol ;)."
+        @nothing = "You forgot to enter a symbol."
       elsif
     
       if params[:id]
@@ -34,13 +34,10 @@ def show
         @stock = IEX::Resources::Quote.get(params[:id])
         @company = IEX::Resources::Company.get(params[:id])
         rescue StandardError
-        @error = "That stock symbol doesn't seem to exist. Please enter 
-          another symbol."
-        #   byebug
+        @error = "That stock symbol doesn't seem to exist. Please enter another symbol."
         end
       end
     end
-    # @company = Company.search(params[:search].upcase)
     @company = client.company(params[:search])
     @company_info = client.quote(params[:search])
     @chart = client.chart(params[:search])
