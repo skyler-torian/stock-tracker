@@ -41,8 +41,9 @@ def show
       end
     end
     # @company = Company.search(params[:search].upcase)
+    @company = client.company(params[:search])
     @company_info = client.quote(params[:search])
-    pp @company_info 
+    pp @company
 end
   
   

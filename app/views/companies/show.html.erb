@@ -4,11 +4,14 @@
     
     
     <ul>
-
+    <li>CEO: <%=@company.ceo%></li>
     <li>Symbol: <%= @company_info.symbol %></li>
-    <li>Primary Exchange: <%= @company_info.primary_exchange%></l>
+    <li>Primary Exchange: <%= @company_info.primary_exchange%></li>
+    <li>Website: <%=@company.website%></li>
+    <li>Industry: <%=@company.industry%></li>
     </ul>
-    <p>Most recent price: $<%= @company_info.latest_price%></p>
+    <p>Description: <%=@company.description%></p>
+    <p>Most recent stock price: $<%= @company_info.latest_price%></p>
    
  
 </p>
