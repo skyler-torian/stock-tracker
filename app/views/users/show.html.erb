@@ -1,3 +1,13 @@
+ <% if Company.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% Company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+ 
  <div><%= link_to "Logout", logout_path %></div>
 
 <h3><%= @user.username %>'s page</h3>

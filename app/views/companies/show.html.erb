@@ -1,12 +1,4 @@
-<% if @company.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% @company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+
 
 <h1><%=@company_info.company_name%></h1>
 
@@ -20,7 +12,7 @@
     <li>Website: <%=@company.website%></li>
     <li>Industry: <%=@company.industry%></li>
     </ul>
-    <p>Description: <%=@company.description%></p>
+    <p><%=@company.description%></p>
     <p>Most recent stock price: $<%= @company_info.latest_price%></p>
    
  
