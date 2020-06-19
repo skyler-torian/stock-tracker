@@ -43,7 +43,9 @@ def show
     # @company = Company.search(params[:search].upcase)
     @company = client.company(params[:search])
     @company_info = client.quote(params[:search])
-    pp @company
+    @chart = client.chart(params[:search])
+    @chart_30 = client.chart(params[:search], '1m')
+    pp @chart_30
 end
   
   
