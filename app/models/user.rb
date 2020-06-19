@@ -1,7 +1,10 @@
-
+require 'bcrypt'
 
 class User < ApplicationRecord
-    # include BCrypt 
+    include BCrypt
+    attr_accessor :password_hash
+    
+    has_secure_password
     has_many :user_companies
     has_many :companies, through: :user_companies
     validates :email, uniqueness: true, presence: true
@@ -12,13 +15,12 @@ class User < ApplicationRecord
 
 
 
-    # def password
-    #     @password = User.new(password)
-    # end
+  def password
+    @password ||= Password.new(password_hash)
+  end
 
-    # def password=(new_password)
-    #     @password = User.create(new_password)
-    #     self.password = @password
-    # end
-
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
 end

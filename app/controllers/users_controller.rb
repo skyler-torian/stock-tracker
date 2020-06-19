@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class UsersController < ApplicationController
   before_action :find_user, only: [:show]
   
@@ -14,17 +16,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    redirect_to login_path
-end
+    @user = User.new(params[:username])
+    @user.email = params[:email]
+    @user.password = params[:password]
+    @user.save!
+  end
 
   def login
     @user = User.find_by_email(params[:email])
-    @password = params[:password]
-    if @password == @user.password
-      # give_token
-    else 
-      redirect_to user_path
+    byebug
+    if @user.password == params[:password]
+      give_token
+    else
+      redirect_to home_url
     end
   end
 
