@@ -15,4 +15,18 @@
    
  
 </p>
+<table>
+
+    <tr>
+    <% @chart_30.each_with_index do |day, index|%>
+    <td><%=day.date%></td>
+    <%end%>
+</tr>
+
+<tr>
+    <% @chart_30.each do |day|%>
+    <td><%=day.volume%></td>
+    <%end%>
+</tr>
+</table>
 
