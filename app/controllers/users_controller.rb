@@ -17,18 +17,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:username])
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user.username = params[:user][:username]
+    @user.email = params[:user][:email]
+    @user.password = params[:user][:password]
     @user.save!
+    redirect_to login_path
   end
 
   def login
     @user = User.find_by_email(params[:email])
-    byebug
+   
     if @user.password == params[:password]
       give_token
     else
-      redirect_to home_url
+      redirect_to sessions_path
     end
   end
 
@@ -40,9 +42,9 @@ def find_user
 end
 
 def user_params
- 
-  params.require(:user).permit!
+  params.require(:user).permit(:username, :email, :password)
 end
+ 
 
   
 end

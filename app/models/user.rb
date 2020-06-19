@@ -2,9 +2,11 @@ require 'bcrypt'
 
 class User < ApplicationRecord
     include BCrypt
-    attr_accessor :password_hash
-    
-    has_secure_password
+
+    attr_accessor :password, :password_hash
+    # attr_reader :password_hash
+
+    # has_secure_password
     has_many :user_companies
     has_many :companies, through: :user_companies
     validates :email, uniqueness: true, presence: true
