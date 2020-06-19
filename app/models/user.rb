@@ -12,9 +12,9 @@ class User < ApplicationRecord
 
 
 
-    def password
-        @password = User.new(password)
-    end
+    # def password
+    #     @password = User.new(password)
+    # end
 
     # def password=(new_password)
     #     @password = User.create(new_password)
