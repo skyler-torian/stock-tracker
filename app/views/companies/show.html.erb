@@ -1,14 +1,15 @@
-<h1> Company information</h1>
+<h1><%=@company_info.company_name%></h1>
 
 <p>
     
     
     <ul>
-    <p><%= @company.symbol %></p>
- 
+
+    <li>Symbol: <%= @company_info.symbol %></li>
+    <li>Primary Exchange: <%= @company_info.primary_exchange%></l>
     </ul>
+    <p>Most recent price: $<%= @company_info.latest_price%></p>
    
  
 </p>
 
-<p> ***Stock information will go here*** </p>

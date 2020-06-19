@@ -57,4 +57,4 @@ gem 'httparty'
 
 gem 'bcrypt'
 
-
+gem 'iex-ruby-client'
