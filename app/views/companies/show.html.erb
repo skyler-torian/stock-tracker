@@ -4,8 +4,6 @@
 <h1><%=@company_info.company_name%></h1>
 
 <p>
-    
-    
     <ul>
     <li>CEO: <%=@company.ceo%></li>
     <li>Symbol: <%= @company_info.symbol %></li>
@@ -15,21 +13,47 @@
     </ul>
     <p><%=@company.description%></p>
     <p>Most recent stock price: $<%= @company_info.latest_price%></p>
-   
- 
 </p>
-<table>
+    
+    
 
+<table>
     <tr>
+    <th>Date: </th>
     <% @chart_30.each_with_index do |day, index|%>
-    <td><%=day.date%></td>
+    <td><%=day.label%></td>
     <%end%>
 </tr>
 
 <tr>
+    <th>Volume: </th>
     <% @chart_30.each do |day|%>
     <td><%=day.volume%></td>
     <%end%>
 </tr>
+
+<tr>
+    <th>Open: </th>
+    <% @chart_30.each do |day|%>
+    <td>$<%=day.open%></td>
+    <%end%>
+</tr>
+
+<tr>
+    <th>Close: </th>
+    <% @chart_30.each do |day|%>
+    <td>$<%=day.close%></td>
+    <%end%>
+</tr>
+
+<tr>
+    <th>High: </th>
+    <% @chart_30.each do |day|%>
+    <td>$<%=day.high%></td>
+    <%end%>
+</tr>
 </table>
+   
+ 
+
 

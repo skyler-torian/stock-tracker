@@ -4,20 +4,7 @@ class CompaniesController < ApplicationController
 
 
       def index
-        if params[:id] == ""
-          @nothing = "You forgot to enter a symbol ;)."
-        elsif
-      
-        if params[:id]
-          begin
-          @stock = IEX::Resources::Quote.get(params[:id])
-          @company = IEX::Resources::Company.get(params[:id])
-          rescue StandardError
-          @error = "That stock symbol doesn't seem to exist. Please enter 
-            another symbol."
-          end
-        end
-      end
+        @companies = Company.all
       end
 
 def show
@@ -34,7 +21,7 @@ def show
         @stock = IEX::Resources::Quote.get(params[:id])
         @company = IEX::Resources::Company.get(params[:id])
         rescue StandardError
-        @error = "That stock symbol doesn't seem to exist. Please enter another symbol."
+            @error = "That stock symbol doesn't seem to exist. Please enter another symbol."
         end
       end
     end
@@ -43,7 +30,13 @@ def show
     @chart = client.chart(params[:search])
     @chart_30 = client.chart(params[:search], '1m')
     pp @chart_30
+    
 end
+
+def create
+    @company = Company.new
+end
+
   
   
 
