@@ -10,4 +10,4 @@ Company.destroy_all
 User.destroy_all
 UserCompany.destroy_all
 
-
+Company.create(symbol: "")

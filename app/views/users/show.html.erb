@@ -7,7 +7,7 @@
 
 <p>Email address: <%= @user.email %></p>
 
-<p><%= @user.username %>'s current stocks:</p>
+<p><%= link_to "All Tracked Symbols", companies_path%></p>
 
 <%= form_tag company_path, :method => "get" do %>
 <%= label_tag(:search, "Find a Company") %>
