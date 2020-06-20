@@ -25,6 +25,7 @@ def show
         end
       end
     end
+
     @company = client.company(params[:search])
     @company_info = client.quote(params[:search])
     @chart = client.chart(params[:search])
@@ -34,7 +35,10 @@ def show
 end
 
 def create
-    @company = Company.new
+    @company = Company.create
+    @company.symbol = params[:symbol]
+    byebug
+    @company.save!
 end
 
   
@@ -43,7 +47,7 @@ end
 private
 
 def company_params
-    params.require(:symbol).permit(:symbol, :search)
+    params.require(:symbol).permit!
 end
 
 

@@ -1,7 +1,17 @@
 <div><%= link_to "Logout", logout_path %></div>
 
 
+
 <h1><%=@company_info.company_name%></h1>
+
+<%= form_for Company.new do |f| %>
+<%= hidden_field_tag(:symbol, @company_info.symbol) %>
+<button type="submit">Add Stock</button>
+
+
+<%end%>
+    
+
 
 <p>
     <ul>
