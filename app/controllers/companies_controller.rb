@@ -61,7 +61,7 @@ def show
     # @sra_20 = @split_array[19].sum / @split_array.size
     # @sra_21 = @split_array[20].sum / @split_array.size
     # @sra_22 = @split_array[21].sum / @split_array.size
-    pp median 
+   
 
    end
  
