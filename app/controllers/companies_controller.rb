@@ -32,58 +32,59 @@ def show
     @chart = client.chart(params[:search])
     @chart_30 = client.chart(params[:search], '1m')
 
-    median = Array.new
+    #capture prior 30 days of close data
     close = @chart_30.map do |day|
          day.close
     end 
-    median << close
     
-    split_array = close.each_slice(5).to_a
+    split_array = close.each_slice(1).to_a
+    concatenated = Array.new
+    split_array.each do |array|
+        concatenated.concat(array)
+    end
+
+    #determine sra 
+    @sra = Array.new
+    i = 5
+   until i >= 22 do
+       sliced_array = concatenated.slice(i-5..i-1)
+       
+        sum = sliced_array.reduce(:+)
+       
+        avg = (sum / sliced_array.length).round(2)
+        i += 1
+        @sra << avg
+
+   end 
    
-    @sra_1 = split_array[0].sum / split_array.size
-    @sra_2 = split_array[1].sum / split_array.size
-    @sra_3 = split_array[2].sum / split_array.size
-    @sra_4 = split_array[3].sum / split_array.size
-    @sra_5 = split_array[4].sum / split_array.size
-    @sra_6 = split_array[5].sum / split_array.size
-    # @sra_7 = split_array[6].sum / split_array.size
-    # @sra_8 = split_array[7].sum / split_array.size
-    # @sra_9 = split_array[8].sum / split_array.size
-    # @sra_10 = split_array[9].sum / split_array.size
-    # @sra_11 = @split_array[10].sum / @split_array.size
-    # @sra_12 = @split_array[11].sum / @split_array.size
-    # @sra_13 = @split_array[12].sum / @split_array.size
-    # @sra_14 = @split_array[13].sum / @split_array.size
-    # @sra_15 = @split_array[14].sum / @split_array.size
-    # @sra_16 = @split_array[15].sum / @split_array.size
-    # @sra_17 = @split_array[16].sum / @split_array.size
-    # @sra_18 = @split_array[17].sum / @split_array.size
-    # @sra_19 = @split_array[18].sum / @split_array.size
-    # @sra_20 = @split_array[19].sum / @split_array.size
-    # @sra_21 = @split_array[20].sum / @split_array.size
-    # @sra_22 = @split_array[21].sum / @split_array.size
+    
+    end
+  
+   
+    def create
+        @company = Company.create
+        @company.symbol = params[:symbol]
+        @company.save!
+    end
+    
+      
+    
+      
+    
+    private
+    
+    def company_params
+        params.require(:symbol).permit!
+    end
+    
+    
+    end
+
    
 
-   end
  
     
   
     
 
-def create
-    @company = Company.create
-    @company.symbol = params[:symbol]
-    @company.save!
-end
 
-  
-  
-
-private
-
-def company_params
-    params.require(:symbol).permit!
-end
-
-
-end
