@@ -24,10 +24,13 @@ def show
         rescue StandardError
             @error = "That stock symbol doesn't seem to exist. Please enter another symbol."
         end
+        
       end
     end
+
     @user = params[:user_id]
     @company = client.company(params[:search])
+
     @company_info = client.quote(params[:search])
     @chart = client.chart(params[:search])
     @chart_30 = client.chart(params[:search], '1m')
