@@ -44,8 +44,8 @@ def show
     @sra_2 = split_array[1].sum / split_array.size
     @sra_3 = split_array[2].sum / split_array.size
     @sra_4 = split_array[3].sum / split_array.size
-    # @sra_5 = split_array[4].sum / split_array.size
-    # @sra_6 = split_array[5].sum / split_array.size
+    @sra_5 = split_array[4].sum / split_array.size
+    @sra_6 = split_array[5].sum / split_array.size
     # @sra_7 = split_array[6].sum / split_array.size
     # @sra_8 = split_array[7].sum / split_array.size
     # @sra_9 = split_array[8].sum / split_array.size

@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "semantic-ui";
+
  body{
     background-image: url("https://images.pexels.com/photos/1843717/pexels-photo-1843717.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
     margin: 0px;

@@ -59,4 +59,4 @@ gem 'bcrypt'
 
 gem 'iex-ruby-client'
 
-gem 'semantic-ui-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
