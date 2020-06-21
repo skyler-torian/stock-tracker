@@ -58,3 +58,5 @@ gem 'httparty'
 gem 'bcrypt'
 
 gem 'iex-ruby-client'
+
+gem 'semantic-ui-rails'
