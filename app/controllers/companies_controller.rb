@@ -48,6 +48,8 @@ def show
         concatenated.concat(array)
     end
 
+    pp concatenated
+
     #determine sra 
     @sra = Array.new
     i = 5
