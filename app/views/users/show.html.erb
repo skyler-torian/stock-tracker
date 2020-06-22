@@ -1,16 +1,35 @@
-
- <div><%= link_to "Logout", logout_path %></div>
+<span class='banner'>
+    <div class='logout-button'>
+        <button class="ui button"><%= link_to "Logout", logout_path %>   <i class="sign in alternate icon"></i></button>
+    </div>
+    <div class='app-name'>
+        <h4>Stock Trackr</h4>
+    </div>
+</span>
 
  
+<div class='user-name'>
+<h3><i class="id card icon"></i> <%= @user.username %>'s page</h3>
 
-<h3><%= @user.username %>'s page</h3>
+<span class="email">
+    <p><i class="envelope icon"></i> <%= @user.email %> </p>
+</span> 
 
-<p>Email address: <%= @user.email %></p>
+<div class="ui breadcrumb">
+    <a class="section"><%= link_to "All Tracked Symbols", companies_path%>
+    </a>
+</div>
 
-<p><%= link_to "All Tracked Symbols", companies_path%></p>
-
+<div>
+<div class="ui icon input">
 <%= form_tag company_path, :method => "get" do %>
-<%= label_tag(:search, "Find a Company") %>
-<%= text_field_tag :search, params[:search] %>
+<%= label_tag(:search, "") %>
+</div>
+
+<input type="text" placeholder="Enter a Symbol" <%= text_field_tag :search, params[:search] %>
+<button class="ui button">
 <%= submit_tag("Search", :symbol => nil )%>
 <%end%>
+</button>
+</div>
+</div>

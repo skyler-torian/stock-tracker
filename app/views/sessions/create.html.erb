@@ -1,16 +1,30 @@
+
+
+<span class='banner'>
+    <div class='app-name'>
+        <h5>Stock Trackr</h5>
+    </div>
+</span>
+
 <h1>Create an account</h1>
 
+<form class='form'>
 <%= form_for User.new do |f| %>
     <div class= "field">
-    <%= f.label :username%>
-    <%= f.text_field :username%></div>
+        <%= f.label :username%>
+        <%= f.text_field :username%>
+    </div>
     <div class= "field">
-    <%= f.label :email%>
-    <%= f.text_field :email%></div>
+        <%= f.label :email%>
+        <%= f.text_field :email%>
+    </div>
     <div class= "field">
-    <%= f.label :password%>
-    <%= f.password_field :password%></div>
-    <button class= "ui button" type="submit">Submit</button>
+        <%= f.label :password%>
+        <%= f.password_field :password%>
+    </div>
+    <div class='actions'>
+        <button class= "ui primary submit button" type="submit">Submit</button>
+    </div>
   
     
 <% end %>

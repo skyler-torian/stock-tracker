@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    cookies[@user.id]
+    
   end
 
   def create
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
     @user.email = params[:user][:email]
     @user.password = params[:user][:password]
     @user.save!
+    flash.notice = "Thanks for signing up! Login below!"
     redirect_to login_path
   end
 
@@ -30,6 +33,8 @@ class UsersController < ApplicationController
    
     if @user.password == params[:password]
       give_token
+      cookies[:username]
+      
     else
       redirect_to sessions_path
     end

@@ -1,11 +1,14 @@
-<h1> All tracked stock symbols</h1>
+<h3> All tracked stock symbols</h3>
 
-<p>
     <% @companies.each do |company| %>
   
-    <%= button_to company.symbol, company_path(company.id), class:"btn btn-default", style:"", method: :get, params: { search: company.symbol} %>
-    
+<div class="ui vertical buttons">
+<button class="ui button">
+    <%= button_to company.symbol, company_path(company.id), style:"", method: :get, params: { search: company.symbol} %>
     <% end %>
-</p>
+</button>
+</div>
+
+    
     
    

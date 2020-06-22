@@ -14,7 +14,7 @@ def show
         endpoint: 'https://cloud.iexapis.com/v1'
       )
       if params[:id] == ""
-        @nothing = "You forgot to enter a symbol."
+        flash.alert = "You forgot to enter a symbol."
       elsif
     
       if params[:id]
@@ -22,12 +22,13 @@ def show
         @stock = IEX::Resources::Quote.get(params[:id])
         @company = IEX::Resources::Company.get(params[:id])
         rescue StandardError
-            @error = "That stock symbol doesn't seem to exist. Please enter another symbol."
+            flash.alert = "That stock symbol doesn't seem to exist. Please enter another symbol."
+           
         end
-        
-      end
     end
-
+  end
+        
+    
     @user = params[:user_id]
     @company = client.company(params[:search])
 
@@ -57,22 +58,14 @@ def show
         avg = (sum / sliced_array.length).round(2)
         i += 1
         @sra << avg
-
-   end 
-   
-    
+    end 
     end
-  
-   
+
     def create
         @company = Company.create
         @company.symbol = params[:symbol]
         @company.save!
     end
-    
-      
-    
-      
     
     private
     
@@ -80,8 +73,16 @@ def show
         params.require(:symbol).permit!
     end
     
+   
+    
+  
+   
     
     end
+      
+    
+      
+    
 
    
 
