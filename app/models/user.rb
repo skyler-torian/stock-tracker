@@ -13,7 +13,7 @@ class User < ApplicationRecord
    
     validates :username, uniqueness: true, presence: true
     # message: "Username must be unique!"
-    validates :password, presence: true 
+    validates :password, presence: true
 
 
 

@@ -10,6 +10,7 @@
         Login
     </h2>
     <div class= "field">
+   
     <%= form_tag "/login" do %>
         <%= label :username, "username"%>
         <%= text_field_tag :username%>
@@ -34,10 +35,5 @@
         <a class="section"
             <%=link_to "signup", new_user_path%>
         </a>
-            <% if flash[:notice] %>
-        <div class="error">
-            <%= flash.notice %>
-        <% end %>
         </div>
     </div>
-</div>

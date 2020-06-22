@@ -23,10 +23,15 @@ class UsersController < ApplicationController
     @user.username = params[:user][:username]
     @user.email = params[:user][:email]
     @user.password = params[:user][:password]
-    @user.save!
-    flash.notice = "Thanks for signing up! Login below!"
-    redirect_to login_path
+    @user.save
+    if @user.save
+      redirect_to login_path
+      flash.notice = "Thanks for signing up! Login below!"
+    else
+      redirect_to new_user_path
+    end
   end
+    
 
   def login
     @user = User.find_by_email(params[:email])

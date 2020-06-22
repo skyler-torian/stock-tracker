@@ -1,4 +1,7 @@
 <div>
+<% if @user.errors.any? %>
+  <%= @user.errors.full_messages %>
+<% end %>
 
 <span class='banner'>
     <div class='app-name'>
@@ -10,6 +13,7 @@
     <h2>Create an account</h2>
 
 <div class="ui form">
+
     <div class="three fields">
         <%= form_for User.new do |f| %>
     <div class= "field">
