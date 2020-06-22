@@ -14,7 +14,8 @@ def show
         endpoint: 'https://cloud.iexapis.com/v1'
       )
       if params[:id] == ""
-        flash.alert = "You forgot to enter a symbol."
+        @blank = "You forgot to enter a symbol."
+        redirect_to user_path
       elsif
     
       if params[:id]
@@ -22,13 +23,13 @@ def show
         @stock = IEX::Resources::Quote.get(params[:id])
         @company = IEX::Resources::Company.get(params[:id])
         rescue StandardError
-            flash.alert = "That stock symbol doesn't seem to exist. Please enter another symbol."
+           
            
         end
     end
   end
         
-    
+   
     @user = params[:user_id]
     @company = client.company(params[:search])
 
@@ -70,7 +71,7 @@ def show
     private
     
     def company_params
-        params.require(:symbol).permit!
+        params.require(:symbol).permit(:symbol)
     end
     
    
