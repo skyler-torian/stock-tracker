@@ -1,80 +1,122 @@
-<div><%= link_to "Logout", logout_path %></div>
+<span class='banner'>
+    <div class='logout-button'>
+        <button class="ui button"><%= link_to "Logout", logout_path %>   <i class="sign in alternate icon"></i></button>
+    </div>
+    <div class='app-name'>
+        <h1>Stock Trackr</h1>
+    </div>
+</span>
 
 
+<h1 class='company-name'>
+    <%=@company_info.company_name%>
+</h1>
 
-<h1><%=@company_info.company_name%></h1>
+<div class='add-stock-button'>
+    <%= form_for Company.new do |f| %>
+    <%= hidden_field_tag(:symbol, @company_info.symbol) %>
+    <button class="ui button green">Add Stock</button>
+    <%end%>
+</div>
 
-<%= form_for Company.new do |f| %>
-<%= hidden_field_tag(:symbol, @company_info.symbol) %>
-<button type="submit">Add Stock</button>
+<br>
+<br>
 
+<div class="ui compact segments">
+  <div class="ui segment">
+   
+        <div class="ui segment">
+            CEO: <%=@company.ceo%>
+        </div>
 
-<%end%>
+        <div class="ui segment">
+            Symbol: <%= @company_info.symbol %>
+        </div>
+
+        <div class="ui segment">
+            Primary Exchange: <%= @company_info.primary_exchange%>
+        </div>
+
+        <div class="ui segment">
+            Website: <%=@company.website%>
+        </div>
+
+        <div class="ui segment">
+            Industry: <%=@company.industry%>
+        </div>
+
+</div>
+
+<br>
+
+<div class="ui raised segment">
+
+        <p>
+            <%=@company.description%>
+        </p>
+
+        <p>
+            Most recent stock price: $<%= @company_info.latest_price%>
+        </p>
     
-
-
-<p>
-    <ul>
-    <li>CEO: <%=@company.ceo%></li>
-    <li>Symbol: <%= @company_info.symbol %></li>
-    <li>Primary Exchange: <%= @company_info.primary_exchange%></li>
-    <li>Website: <%=@company.website%></li>
-    <li>Industry: <%=@company.industry%></li>
-    </ul>
-    <p><%=@company.description%></p>
-    <p>Most recent stock price: $<%= @company_info.latest_price%></p>
-</p>
+</div>
     
     
-
-<table>
+<div class='symbol-table'>
+<table class="ui celled table">
     <tr>
-    <th>Date: </th>
-    <% @chart_30.each_with_index do |day, index|%>
-    <td><%=day.label%></td>
-    <%end%>
-</tr>
+        <th>Date: </th>
+        <% @chart_30.each_with_index do |day, index|%>
+        <td data-label="Date" class='date'><%=day.label%></td>
+        <%end%>
+    </tr>
 
-<tr>
-    <th>Volume: </th>
-    <% @chart_30.each do |day|%>
-    <td><%=day.volume%></td>
-    <%end%>
-</tr>
-<tr>
-    <th>High: </th>
-    <% @chart_30.each do |day|%>
-    <td>$<%=day.high%></td>
-    <%end%>
-</tr>
+    <tr>
+        <th>Volume: </th>
+        <% @chart_30.each do |day|%>
+        <td data-label="Volume" class='volume'><%=day.volume%></td>
+        <%end%>
+    </tr>
 
-<tr>
-    <th>Open: </th>
-    <% @chart_30.each do |day|%>
-    <td>$<%=day.open%></td>
-    <%end%>
-</tr>
+    <tr>
+        <th>High: </th>
+        <% @chart_30.each do |day|%>
+        <td data-label="High">$<%=day.high%></td>
+        <%end%>
+    </tr>
 
-<tr>
-    <th>Close: </th>
-    <% @chart_30.each do |day|%>
-    <td>$<%=day.close%></td>
-    <%end%>
-</tr>
+    <tr>
+        <th>Open: </th>
+        <% @chart_30.each do |day|%>
+        <td data-label="Open" class='open'>$<%=day.open%></td>
+        <%end%>
+    </tr>
 
+    <tr>
+        <th>Close: </th>
+        <% @chart_30.each do |day|%>
+        <td data-label="Close" class='close'>$<%=day.close%></td>
+        <%end%>
+    </tr>
 
-<tr>
-    <th>SRA: </th>
-    <td>$**</td>
-    <td>$**</td>
-    <td>$**</td>
-    <td>$**</td>
-    <td>$**</td>
-    <% @sra.each do |sra|%>
-    <td>$<%= sra %></td>
-    <%end%>
-</tr>
+    <tr>
+        <th>SRA: </th>
+        <td data-label="SRA" class='sra'>$**</td>
+        <td data-label="SRA" class='sra'>$**</td>
+        <td data-label="SRA" class='sra'>$**</td>
+        <td data-label="SRA" class='sra'>$**</td>
+        <td data-label="SRA" class='sra'>$**</td>
+        <% @sra.each do |sra|%>
+        <td data-label="SRA" class='sra'>$<%= sra %></td>
+        <%end%>
+    </tr>
 </table>
+</div>
+
+    
+
+
+
     
     
 

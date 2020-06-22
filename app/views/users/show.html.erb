@@ -3,13 +3,13 @@
         <button class="ui button"><%= link_to "Logout", logout_path %>   <i class="sign in alternate icon"></i></button>
     </div>
     <div class='app-name'>
-        <h4>Stock Trackr</h4>
+        <h1>Stock Trackr</h1>
     </div>
 </span>
 
- 
-<div class='user-name'>
-<h3><i class="id card icon"></i> <%= @user.username %>'s page</h3>
+ <div class='user-show-container'>
+    <div class='user-name'>
+        <h3><i class="id card icon"></i> <%= @user.username %>'s page</h3>
 
 <span class="email">
     <p><i class="envelope icon"></i> <%= @user.email %> </p>
@@ -21,15 +21,17 @@
 </div>
 
 <div>
-<div class="ui icon input">
-<%= form_tag company_path, :method => "get" do %>
-<%= label_tag(:search, "") %>
+    <div class="ui icon input">
+    <%= form_tag company_path, :method => "get" do %>
+    <%= label_tag(:search, "") %>
 </div>
 
-<input type="text" placeholder="Enter a Symbol" <%= text_field_tag :search, params[:search] %>
-<button class="ui button">
-<%= submit_tag("Search", :symbol => nil )%>
-<%end%>
+<input type="text" placeholder="Enter a Symbol" 
+    <%= text_field_tag :search, params[:search] %>
+    <button class="ui button green" type="submit">Search
+    <%end%>
 </button>
+
+</div>
 </div>
 </div>

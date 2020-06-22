@@ -1,9 +1,21 @@
-<h3> All tracked stock symbols</h3>
+<span class='banner'>
+    <div class='logout-button'>
+        <button class="ui button"><%= link_to "Logout", logout_path %>   <i class="sign in alternate icon"></i></button>
+    </div>
+    <div class='app-name'>
+        <h1>Stock Trackr</h1>
+    </div>
+</span>
+
+
+<h3 class='stock-index-header'> 
+    All tracked stock symbols
+</h3>
 
     <% @companies.each do |company| %>
   
 <div class="ui vertical buttons">
-<button class="ui button">
+<button class="ui basic button"
     <%= button_to company.symbol, company_path(company.id), style:"", method: :get, params: { search: company.symbol} %>
     <% end %>
 </button>

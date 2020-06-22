@@ -1,0 +1,35 @@
+<div>
+
+<span class='banner'>
+    <div class='app-name'>
+        <h1>Stock Trackr</h1>
+    </div>
+</span>
+
+<div class='create-account'>
+    <h3>Create an account</h3>
+
+<div class="ui form">
+    <div class="three fields">
+        <%= form_for User.new do |f| %>
+    <div class= "field">
+        <%= f.label :username%>
+        <%= f.text_field :username%>
+    </div>
+    <div class= "field">
+        <%= f.label :email%>
+        <%= f.text_field :email%>
+    </div>
+    <div class= "field">
+        <%= f.label :password%>
+        <%= f.password_field :password%>
+    </div>
+    <div class='create-submit-button'>
+        <button class= "ui green button" type="submit">Submit</button>
+        <% end %>
+    </div>
+</div>
+  
+    
+
+</div>
