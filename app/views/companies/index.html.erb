@@ -14,14 +14,13 @@
         </h3>
 </div>
 
-    <% @companies.each do |company| %>
   
-<div class="ui vertical buttons">
-<button class="ui basic button"
-    <%= button_to company.symbol, company_path(company.id), style:"", method: :get, params: { search: company.symbol} %>
+
+    <% @companies.each do |company| %>
+<button <%= button_to company.symbol, company_path(company.id), method: :get, params: { search: company.symbol} %>
     <% end %>
 </button>
-</div>
+
 
     
     
