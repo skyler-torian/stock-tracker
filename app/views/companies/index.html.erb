@@ -18,9 +18,9 @@
 
 <% @companies.each do |company| %>
 <div class="ui vertical buttons" style="float: left">
-<%= button_to company.symbol, company_path(company.id), method: :get, params: { search: company.symbol}, :class => "ui button"%>
+    <%= button_to company.symbol, company_path(company.id), method: :get, params: { search: company.symbol}, :class => "ui button"%>
     <% end %>
-    </div>
+</div>
 
 
 
